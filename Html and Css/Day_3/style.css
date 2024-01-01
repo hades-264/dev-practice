@@ -1,0 +1,38 @@
+body{
+        font-family: cursive;
+}
+
+.chill{
+        text-shadow: 2px 2px;
+        font-size: 30px;
+        margin: 40px;
+}
+
+.call{
+        font-size: 30px;
+        margin: 40px;
+        text-decoration-color: lightcoral;
+}
+
+h1,h2,h3{
+        
+        background-color: cornflowerblue;
+        text-align: center;
+        text-shadow: 2px 2px 3px crimson;
+}
+
+h1 {
+        background-color:gold;
+        text-align: center;
+        text-shadow: 2px 2px 2px red;
+}
+
+p{
+        background-color: aliceblue;
+        text-indent: 40px;
+}
+
+span{
+        color: red;
+        text-decoration: underline;
+}

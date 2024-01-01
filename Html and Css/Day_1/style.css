@@ -1,0 +1,26 @@
+body {
+  color: white;
+  background-color: black;
+
+  font-family: "Times New Roman", Times, serif;
+}
+
+h1 {
+  background: rgb(40, 20, 100);
+}
+.general {
+  color: lightblue;
+  font-size: 20px;
+}
+
+article {
+  font-size: large;
+  color: greenyellow;
+  p {
+    color: gray;
+  }
+}
+
+span {
+  color: lightblue;
+}

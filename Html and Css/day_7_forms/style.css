@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(42, 42, 42);
+    background: linear-gradient(to top left, rgb(205, 50, 50), rgb(41, 4, 249));
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    padding: 50px;
+}
+
+section {
+    border: 2px solid rgb(69, 205, 243);
+    border-radius: 5px;
+    padding: 10px;
+    width: auto;
+}
+
+input {
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#Sign {
+    margin-bottom: 0;
+    padding: 4px;
+    width: 80px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#Sign:hover {
+    background-color: gray;
+}
