@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Business Website</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media_query.css">
 </head>
 
 <body>
@@ -22,7 +23,7 @@
                 <img src="../../images/company-logo.jpg" alt="company-logo">
             </a>
 
-            <div class="nav-links">
+            <div class="nav-links" id="nav-links">
                 <ul class="flex">
                     <li><a href="#" class="hover-links">Products</a></li>
                     <li><a href="#" class="hover-links">Customer</a></li>
@@ -32,6 +33,7 @@
                     <li><a href="#" class="hover-links primary-btn">Sign up</a></li>
                 </ul>
             </div>
+            <a href="#" class="nav-toggle hover-link" id="nav-toggle"><i class="fa-solid fa-bars"></i></a>
         </div>
     </nav>
 
@@ -118,7 +120,7 @@
     </section>
 
     <section class="big-features-section">
-        <div class="container big-feature-container flex">
+        <div class="container flex big-feature-container">
             <div class="feature-img">
                 <img src="../../images/hero1.png" alt="">
             </div>
@@ -131,7 +133,7 @@
         </div>
     </section>
     <section class="big-features-section">
-        <div class="container big-feature-container flex">
+        <div class="container big-feature-container flex" id="second-big-feature">
             <div class="feature-desc flex">
                 <h4>Effortless validation for</h4>
                 <h3>Design professionals</h3>
@@ -144,7 +146,7 @@
         </div>
     </section>
     <section class="big-features-section">
-        <div class="container big-feature-container flex">
+        <div class="container big-feature-container flex ">
             <div class="feature-img">
                 <img src="../../images/hero3.png" alt="">
             </div>
@@ -247,6 +249,15 @@
         </div>
 
         <script src="https://kit.fontawesome.com/32ebc6ae11.js" crossorigin="anonymous"></script>
+
+        <script>
+            const toggleBtn = document.getElementById('nav-toggle');
+            const navLinks = document.getElementById('nav-links');
+
+            toggleBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        </script>
 </body>
 
 </html>
