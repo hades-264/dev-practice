@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events</title>
+</head>
+
+<body>
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, recusandae?</p>
+    </div>
+</body>
+<script>
+    const userUrl = 'https://api.github.com/users/hades-264';
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            console.log(this.responseText);
+            console.log(typeof this.responseText);
+            const count = JSON.parse(this.responseText);
+            console.log(count);
+            console.log(typeof count);
+            console.log(count.twitter_username);
+            
+            
+
+        }
+    }
+    xhr.open('GET', userUrl);
+    xhr.send();
+
+
+
+
+
+
+</script>
+
+</html>

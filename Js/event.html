@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h1>Chai or Code</h1>
+	<button id="start">Start</button>
+	<button id="stop">Stop</button>
+</body>
+<script>
+	// const time = setTimeout(function () {
+	// 	document.querySelector('h1').innerHTML = "Learning JavaScript";
+	// }, 2000);
+
+	// document.querySelector('#stop').addEventListener('click', function () {
+	// 	console.log("Started");
+	// 	clearTimeout(time);
+	// 	console.log("Stopped");
+	// })
+
+	document.querySelector('#start').addEventListener('click', function () {
+		let start = setInterval(function () {
+			console.log(`Time is: ${parseInt(Date.now() / 1000)}`);
+			if (parseInt(Date.now() / 1000) % 2 == 0) {
+				document.querySelector('h1').innerHTML = "JavaScript Series";
+			} else {
+				document.querySelector('h1').innerHTML = "Chai aur Code";
+			}
+		}, 1000);
+
+		document.querySelector('#stop').addEventListener('click', function () {
+			console.log("Clear");
+			clearInterval(start);
+		});
+	});
+
+
+
+
+
+
+
+</script>
+
+</html>
