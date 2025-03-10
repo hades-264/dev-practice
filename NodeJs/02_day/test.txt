@@ -1,0 +1,22 @@
+Hello from Async
+Rohit 100
+Virat 400
+Dhoni 2000
+Append through Sync
+Append through Sync
+Append through Sync
+Append through Sync
+Append through Async
+Append through Async
+Append through Async
+Append through AsyncAppend through Async
+Append through Async
+Append through Async
+Append through Async
+Append through Async
+Append through Async
+Append through Async
+Append through Async
+Append through Async
+Append through Async
+Append through Async
