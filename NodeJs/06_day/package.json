@@ -1,5 +1,5 @@
 {
-  "name": "05_day",
+  "name": "06_day",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,10 +9,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "typescript": "^5.8.2",
     "url": "^0.11.4"
-  },
-  "devDependencies": {
-    "@ljharb/tsconfig": "^0.3.2"
   }
 }
