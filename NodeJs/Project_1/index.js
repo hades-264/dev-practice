@@ -36,7 +36,12 @@ app.route('/api/users/:id')
 })
 .patch((req, res) => {
     // Edit user with id
-    return res.json({ status: 'Pending'});
+    const id = Number(req.params.id);
+    const index = users.findIndex((user) => user.id === id);
+    users[index].email = `${users[index].first_name}.${users[index].last_name}@gmail.com`;
+    fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err, data) => {
+        return res.json({ status: 'Success'});
+    });
 })
 .delete( (req, res) => {
     // Delete user with id
