@@ -1,22 +1,106 @@
-const express = require('express');
+// // 1st Solution
+// const fs = require('fs');
 
-const app = express();
+// const users = [
+//     { 
+//         name: "Alice", 
+//         age: 20
+//     },
+//     { 
+//         name: "Bob",
+//         age: 30
+//     },
+//     { 
+//         name: "Charlie",
+//         age: 10
+//     }
+// ]
 
-const users = [
-    { first_name: "Alice" },
-    { name: "Bob" },
-    { last_name: "Charlie" }
-];
+// fs.writeFile('./log.txt', JSON.stringify(users), (err, data) => {
+//     console.log('Content added in file');
+// });
 
-const html = `<ul>
-    ${users.map((user) => `<li>${user.first_name}</li>`).join("")}
-</ul>`;
+// console.log(users);
 
-app.get('/', (req, res)=>{
-    res.send(html);
-})
+// let name = 'Bob';
+// const user = users.findIndex((user) => user.name === name);
+// console.log(users[user].name);
+// users.splice(user, 1);
 
-// console.log(html);
-app.listen(8080, ()=>{console.log('Server');
-});
+// console.log(users);
 
+// fs.writeFile('./log.txt', JSON.stringify(users), (err, data) => {
+//     console.log('Content deleted from file');
+// });
+
+// // The final output in the log.txt file:
+// // [{"name":"Alice","age":20},{"name":"Charlie","age":10}]me":"Charlie","age":10}]
+
+
+// // 2nd Solution
+// const fs = require('fs');
+
+// const users = [
+//     { 
+//         name: "Alice", 
+//         age: 20
+//     },
+//     { 
+//         name: "Bob",
+//         age: 30
+//     },
+//     { 
+//         name: "Charlie",
+//         age: 10
+//     }
+// ]
+
+// fs.writeFileSync('./log.txt', JSON.stringify(users));
+
+// console.log(users);
+
+// let name = 'Bob';
+// const user = users.findIndex((user) => user.name === name);
+// console.log(users[user].name);
+// users.splice(user, 1);
+
+// console.log(users);
+
+// fs.writeFileSync('./log.txt', JSON.stringify(users));
+
+// // The final output in the log.txt file:
+// // [{"name":"Alice","age":20},{"name":"Charlie","age":10}]
+
+const fs = require('fs/promises');
+
+async function main() {
+    const users = [
+        { 
+            name: "Alice", 
+            age: 20
+        },
+        { 
+            name: "Bob",
+            age: 30
+        },
+        { 
+            name: "Charlie",
+            age: 10
+        }
+    ]
+
+    await fs.writeFile('./log.txt', JSON.stringify(users));
+    console.log(users);
+
+    let name = 'Bob';
+    const user = users.findIndex((user) => user.name === name);
+    console.log(users[user].name);
+    users.splice(user, 1);
+
+    console.log(users);
+
+    await fs.writeFile('./log.txt', JSON.stringify(users));
+    console.log('Content updated in file');
+}
+
+main();

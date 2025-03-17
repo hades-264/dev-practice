@@ -41,8 +41,9 @@ app.route('/api/users/:id')
 .delete( (req, res) => {
     // Delete user with id
     const id = Number(req.params.id);
-    const user = users.find((user) => user.id === id);
-    users.pop(user);
+    // const user = users.find((user) => user.id === id);
+    const index = users.findIndex((user) => user.id === id);
+    users.splice(index, 1);
     fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err, data) => {
         return res.json({ status: 'Success', userid: id});
     });
