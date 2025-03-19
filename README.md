@@ -1,2 +1,2 @@
-## Web dev
-Simplifying Web dev
+## dev-practice
+Practicing web concepts
