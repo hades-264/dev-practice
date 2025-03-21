@@ -2,7 +2,6 @@ const express = require('express');
 const fs = require('fs');
 const mongoose = require('mongoose');
 const users = require('./MOCK_DATA.json');
-const { type } = require('os');
 
 const app = express();
 const port = 8000;
