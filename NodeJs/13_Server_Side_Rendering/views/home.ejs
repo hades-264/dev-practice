@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+  </head>
+  <body>
+    <h1>URL Shortener</h1>
+
+    <div>
+      <form method="post" action="/url">
+        <label for="URL">Enter Your Original URL</label>
+        <br />
+        <input type="text" name="url" placeholder="https://example.com" />
+        <button type="submit">Generate</button>
+      </form>
+    </div>
+
+    <% if (locals.body) { %>
+    <p>ShortURL Generated: http://localhost:8001/url/<%= id %></p>
+    <% } %>
+
+    <div style="margin: 20px"></div>
+    <div>
+      <table>
+        <thead>
+          <th>S.No</th>
+          <th>ShortId</th>
+          <th>Redirect</th>
+          <th>ShortURL</th>
+          <th>CLicks</th>
+        </thead>
+        <% for( let index = 0; index < urls.length; index++ ) { %>
+        <tr style="text-align: center;">
+          <td><%= index + 1 %></td>
+          <td><%= urls[index].shortId %></td>
+          <td><%= urls[index].redirectUrl %></td>
+          <td><a
+            href="http://localhost:8001/url/<%= urls[index].shortId %>"
+            target="_blank">http://localhost:8001/url/<%= urls[index].shortId %></a></td>
+          <td><%= urls[index].visitHistory.length %></td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+  </body>
+</html>
