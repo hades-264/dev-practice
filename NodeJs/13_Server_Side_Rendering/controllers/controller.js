@@ -7,6 +7,15 @@ async function handleGenerateShortUrl(req, res) {
         return res.status(404).json({ error: 'url is required' });
     }
 
+    const checkUrl = await Url.findOne({ redirectUrl: body.url });
+
+    if (checkUrl) {
+        return res.json({
+            error: 'This url is already present',
+            shortId: checkUrl.shortId
+        })
+    }
+
     const shortID = shortid.generate();
 
     await Url.create({
@@ -15,9 +24,7 @@ async function handleGenerateShortUrl(req, res) {
         visitHistory: []
     })
 
-    return res.render('home', {
-        id: shortID
-    });
+    return res.render('home', { id: shortID });
     // return res.json({ id: shortID });
 }
 
@@ -36,30 +43,33 @@ async function handleGetShortUrl(req, res) {
             }
         });
 
+    if (!entry) {
+        return res.status(404).json({
+            err: 'URL does not exist'
+        })
+    }
+
     return res.redirect(entry.redirectUrl);
 }
 
 async function handleGetAnalytics(req, res) {
     const shortId = req.params.shortId;
-    const result = await Url.findOne({shortId});
+    const result = await Url.findOne({ shortId });
+
+    if (!result) {
+        return res.status(404).json({
+            err: 'URL does not exist'
+        })
+    }
+
     return res.json({
         totalClicks: result.visitHistory.length,
         analytics: result.visitHistory
     });
 }
 
-async function handleDeleteUrl(req, res){
-    const id = req.params.shortId;
-    if(!id){
-        return res.json({error: 'No id found'});
-    }
-    await Url.deleteOne({ shortId: id});
-    return res.json({msg: 'Successfully Deleted'});
-}
-
 module.exports = {
     handleGenerateShortUrl,
     handleGetShortUrl,
-    handleGetAnalytics,
-    handleDeleteUrl
+    handleGetAnalytics
 }
