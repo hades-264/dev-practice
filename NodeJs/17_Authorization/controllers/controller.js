@@ -31,7 +31,7 @@ async function handleGenerateShortUrl(req, res) {
 
     return res.render('home', { 
         id: shortID, 
-        urlCreater: req.user.name 
+        urlCreater: req.user.name
     });
 }
 
